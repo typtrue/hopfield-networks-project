@@ -1,0 +1,4 @@
+- created hfn class
+- initial test of basic hopfield network, accuracy of around 90%
+
+- want to try complex-valued spin with mod 1
