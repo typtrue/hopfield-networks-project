@@ -2,8 +2,13 @@ import numpy as np
 import cmath as cm
 
 class HopfieldNetwork:
-
+    """
+    Represents a simple Hopfield Network where the spins are limited to be +1 or -1
+    """
     def __init__(self, shape, *, interactions = None, threshold = None):
+        """
+        Constructor function: 
+        """
         assert (len(shape) == 2)
         self.savedimages = 0
         self.shape = shape
@@ -76,37 +81,6 @@ class HopfieldComplex:
         np.fill_diagonal(traindata, 0)
 
         self.interactions = ((n-1) * self.interactions + traindata) / n
-
-    # def update_async(self, states):
-    #     interactions = self.interactions
-    #     newstates = states.copy()
-    #     for i in range(len(states)):
-    #         avg = np.dot(states,interactions[i,].T) / states.size
-    #         newstates[i] = avg
-    #         states = newstates.copy()
-    #     return states
-
-    # def update_sync(self, states):
-    #     interactions = self.interactions
-    #     newstates = np.zeros(np.prod(self.shape), dtype=np.float32)
-    #     for i in range(len(states)):
-    #         avg = np.dot(states,interactions[i,].T) / states.size
-    #         print(avg)
-    #         newstates[i] = avg
-    #     return newstates
-
-    # def train_network(self, states):
-    #     self.savedimages += 1
-    #     n = self.savedimages
-    #     k = np.tile(states, (states.size, 1))
-    #     traindata = 1 - abs(k - k.T)
-
-    #     np.fill_diagonal(traindata, 0)
-
-
-    #     a = np.ones((states.size,)) - np.identity(states.size)
-
-    #     self.interactions = ((n-1) * self.interactions + traindata) / n
 
     def energy_function(self, states):
         return -((self.interactions @ states) @ states)
