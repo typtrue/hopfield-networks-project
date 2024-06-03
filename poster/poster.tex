@@ -1,9 +1,3 @@
-% !TEX program = xelatex
-
-% Unofficial University of Oxford Poster Template
-% https://github.com/andiac/gemini-cam
-% a fork of https://github.com/anishathalye/gemini
-
 \documentclass[final]{beamer}
 
 % ====================
@@ -41,27 +35,17 @@
 
 \title{Using Hopfield Networks to restore corrupted greyscale images}
 
-\author{Daniel Haywood}
-
-\institute[shortinst]{Imperial College London}
-
 % ====================
-% Footer (optional)
+% Footer
 % ====================
 
-% \footercontent{
-%   \href{https://www.example.com}{https://www.example.com} \hfill
-%   ABC Conference 2025, London --- XYZ-1234 \hfill
-%   \href{mailto:john.doe@example.com}{john.doe@example.com}}
-% (can be left out to remove footer)
+\footercontent{ \hfill \hfill
+  Daniel Haywood}
 
 % ====================
-% Logo (optional)
+% Logo
 % ====================
-% Refer to https://github.com/k4rtik/uchicago-poster
-% logo: https://communications.admin.ox.ac.uk/communications-resources/visual-identity/identity-guidelines/the-oxford-logo
-% use this to include logos on the left and/or right side of the header:
-\logoright{\includegraphics[height=7cm]{logos/ox-logo.png}}
+\logoleft{\includegraphics[height=4cm]{logos/Imperial-college-white.png}}
 
 % ====================
 % Body
@@ -79,64 +63,84 @@
 
   \begin{block}{An introduction to Hopfield Networks}
 
-    F
+    \textbf{Hopfield Networks} are a form of Ising model that have many uses in various sectors: 
+    computational neuroscience, optimisation, and more. Similar to an Ising model, they
+    are comprised of an array of nodes that are given a \textit{magnetic spin},
+    either $+1$ or $-1$, and connections, \textit{'weights'}, linking them.
+    We can use this archetecture to \textit{'train'} the network on given sets of data,
+    effectively \textit{'storing the memory'} of the data on the network.
+    Then, we can recover the stored data by inputting a new set of data
+    and \textit{'updating'} the network using the weights we obtained from training
+    it on our sets of data.
 
-    \begin{figure}
-      \centering
-      \begin{tikzpicture}[scale=6]
-        \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
-        \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
-          -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
-      \end{tikzpicture}
-      \caption{A figure caption.}
-    \end{figure}
+    % \begin{figure}
+    %   \centering
+    %   \begin{tikzpicture}[scale=6]
+    %     \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
+    %     \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
+    %       -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
+    %   \end{tikzpicture}
+    %   \caption{A figure caption.}
+    % \end{figure}
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies
-    eget libero ac ullamcorper. Integer et euismod ante. Aenean vestibulum
-    lobortis augue, ut lobortis turpis rhoncus sed. Proin feugiat nibh a
-    lacinia dignissim. Proin scelerisque, risus eget tempor fermentum, ex
-    turpis condimentum urna, quis malesuada sapien arcu eu purus.
-
-  \end{block}
-
-  \begin{block}{A block containing a list}
-
-    Nam vulputate nunc felis, non condimentum lacus porta ultrices. Nullam sed
-    sagittis metus. Etiam consectetur gravida urna quis suscipit.
-
-    \begin{itemize}
-      \item \textbf{Mauris tempor} risus nulla, sed ornare
-      \item \textbf{Libero tincidunt} a duis congue vitae
-      \item \textbf{Dui ac pretium} morbi justo neque, ullamcorper
-    \end{itemize}
-
-    Eget augue porta, bibendum venenatis tortor.
+    In this project, we will look specifically at its application in image processing: how it can
+    be used to restore and discern between corrupted pixellated images. By training the network on
+    a set of images, we can then input corrupted versions of the images into the network, and updating
+    the network will yield an image that should hopefully resemble the orignal image to a good degree
+    of accuracy.
 
   \end{block}
 
-  \begin{alertblock}{A highlighted block}
+  \begin{block}{Basic definitions}
 
-    This block catches your eye, so \textbf{important stuff} should probably go
-    here.
+    We start by defining our $n$ node spins $V_i$, where $i \in \{0, 1, ..., n\}$.
+    These nodes all have connections to other nodes, and this is denoted by
+    $T_{ij}$, which represents the connection between nodes $i$ and $j$. We note that,
+    $\forall i, j, T_{ij} = T_{ji}$. Further, $T_{ij} = T_{ji} = 0$ whenever
+    nodes $i$ and $j$ are not connected, or when $i = j$.
 
-    Curabitur eu libero vehicula, cursus est fringilla, luctus est. Morbi
-    consectetur mauris quam, at finibus elit auctor ac. Aliquam erat volutpat.
-    Aenean at nisl ut ex ullamcorper eleifend et eu augue. Aenean quis velit
-    tristique odio convallis ultrices a ac odio.
+    Like an Ising model, we \textit{'update'} the network given a set of spins by
+    considering a threshold for each node, denoted by $U_i$. Then, we say:
 
-    \begin{itemize}
-      \item \textbf{Fusce dapibus tellus} vel tellus semper finibus. In
-        consequat, nibh sed mattis luctus, augue diam fermentum lectus.
-      \item \textbf{In euismod erat metus} non ex. Vestibulum luctus augue in
-        mi condimentum, at sollicitudin lorem viverra.
-      \item \textbf{Suspendisse vulputate} mauris vel placerat consectetur.
-        Mauris semper, purus ac hendrerit molestie, elit mi dignissim odio, in
-        suscipit felis sapien vel ex.
-    \end{itemize}
+    \begin{equation} \label{update_rule}
+      V_i = \begin{cases} 
+              +1, & \sum_{j}T_{ij}V_j > U_i \\
+              -1, & \sum_{j}T_{ij}V_j \leq U_i
+            \end{cases}
+    \end{equation}
 
-    Aenean tincidunt risus eros, at gravida lorem sagittis vel. Vestibulum ante
-    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+    This threshold vector could be defined specifically to influence how specific nodes
+    tend to behave, but for the purposes of this project we will define the threshold
+    vector to be the zero vector, that is, $U_i = 0, \forall i$.
 
+    This update can either be done \textit{asynchronously} or \textit{synchronously}, for the former,
+    each $V_i$ is updated individually and the new $V_i$ is used for the updates
+    of other nodes, and for the latter, all updates use the initial set of node spins
+    before any updates took place. If updating synchronously, some kind of internal
+    clock or way to save previous states of the network must exist, and so most 
+    biological systems, such as the brain, will update asynchronously.
+  \end{block}
+
+  \begin{alertblock}{The Hebbian learning rule}
+
+    The core of the Hopfield network lies in its use in \textit{'storing'} states
+    of the network to be recovered later. This is done using the \textit{Hebbian learning
+    rule}. \cite{hopfield:1982}
+
+    If we have a set of $m$ states $V^s, s \in \{1, ..., m\}$, we can use the
+    Hebbian learning rule:
+
+    \begin{equation} \label{hebbian_learning_rule}
+      T_{ij} = \sum_{s}{V^s_i}{V^s_j}
+    \end{equation}
+
+    Since this equation yields nonzero values for the case where $i = j$, we must
+    then adjust for this by resetting $T_{ij}$ to $0$ whenever $i = j$. This will 
+    update the weights of the network and effectively \textit{'imprint'}
+    the states into the network.
+
+    Now we have our basic tools for applying a Hopfield network to our problem, we
+    can start looking at basic uses of the network.
   \end{alertblock}
 
 \end{column}
@@ -145,30 +149,56 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{A block containing an enumerated list}
+  \begin{block}{Initialising and training the network}
 
-    Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
-    interdum. In quis suscipit erat. \textbf{Phasellus mauris felis, molestie
-    ac pharetra quis}, tempus nec ante. Donec finibus ante vel purus mollis
-    fermentum. Sed felis mi, pharetra eget nibh a, feugiat eleifend dolor. Nam
-    mollis condimentum purus quis sodales. Nullam eu felis eu nulla eleifend
-    bibendum nec eu lorem. Vivamus felis velit, volutpat ut facilisis ac,
-    commodo in metus.
+    Suppose we have a set of $k$ $n$-by-$m$ uncorrupted images to train the model on,
+    where each pixel can either be black or white.
+    We can, without loss of generality, assign the colour black to the spin $+1$
+    and white to $-1$. Now, each image can be represented as a set of $nm$ spins, 
+    using each pixel as a node in the network, so we can use a Hopfield network to 
+    store them.
 
-    \begin{enumerate}
-      \item \textbf{Morbi mauris purus}, egestas at vehicula et, convallis
-        accumsan orci. Orci varius natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus.
-      \item \textbf{Cras vehicula blandit urna ut maximus}. Aliquam blandit nec
-        massa ac sollicitudin. Curabitur cursus, metus nec imperdiet bibendum,
-        velit lectus faucibus dolor, quis gravida metus mauris gravida turpis.
-      \item \textbf{Vestibulum et massa diam}. Phasellus fermentum augue non
-        nulla accumsan, non rhoncus lectus condimentum.
-    \end{enumerate}
+    To set up our problem, we can store each image as a vector of its spins, so for
+    the $s$th image:
+    \begin{equation*}
+      \boldsymbol{V^s} = \begin{bmatrix}
+        V^s_1 \\
+        V^s_2 \\
+        \vdots \\
+        V^s_{nm}
+      \end{bmatrix}
+    \end{equation*}
+
+    Similarly, we also store the weights in an $nm$-by-$nm$ matrix:
+    \begin{equation*}
+      \boldsymbol{T} = \begin{bmatrix}
+        T_{1,1}   & \dots   & T_{1,nm}\\
+        \vdots      & \ddots  & \\
+        T_{nm,1}  &         & T_{nm,nm}
+      \end{bmatrix}
+    \end{equation*}
+
+    Then, we can apply the Hebbian learning rule to train the network on our images, using
+    (\ref{hebbian_learning_rule}):
+    \begin{equation} \label{hebbian_simple_eq}
+      \boldsymbol{T} = \frac{1}{k} \sum_{s}(\boldsymbol{V^s}\otimes\boldsymbol{V^s} - diag({V^s_1}{V^s_1}, \dots, {V^s_{nm}}{V^s_{nm}}))
+    \end{equation}
+    where $\otimes$ indicates the vector outer product.
+
+    This then gives us:
+    \begin{equation*}
+      \boldsymbol{T} = \frac{1}{k} \sum_{s} \begin{bmatrix}
+        0                 & {V^s_1}{V^s_2}  & \dots   & {V^s_1}{V^s_{nm}}\\
+        {V^s_2}{V^s_1}    & \ddots          &         & \vdots \\
+        \vdots            &                 &         & \vdots \\
+        {V^s_{nm}}{V^s_1} & \dots           & \dots   & 0
+      \end{bmatrix}
+    \end{equation*}
+    as desired.
 
   \end{block}
 
-  \begin{block}{Fusce aliquam magna velit}
+  \begin{block}{Restoring images}
 
     Et rutrum ex euismod vel. Pellentesque ultricies, velit in fermentum
     vestibulum, lectus nisi pretium nibh, sit amet aliquam lectus augue vel
@@ -196,38 +226,12 @@
 
   \end{block}
 
-  \begin{block}{Nam cursus consequat egestas}
-
-    Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
-    lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
-    ac ante \textit{ipsum primis} in faucibus. Etiam sit amet velit eget sem
-    euismod tristique. Praesent enim erat, porta vel mattis sed, pharetra sed
-    ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
-    hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
-    sit amet sollicitudin risus tincidunt non.
+  \begin{block}{t}
 
     Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
     consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
     mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
     ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
-
-    \begin{itemize}
-      \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
-        sed est scelerisque, elementum mollis augue iaculis.
-        \begin{itemize}
-          \item In sed est finibus, vulputate
-            nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
-            porttitor quis.
-          \item Fusce ornare dignissim nisi. Nam sit amet risus vel lacus
-            tempor tincidunt eu a arcu.
-          \item Donec rhoncus vestibulum erat, quis aliquam leo
-            gravida egestas.
-        \end{itemize}
-      \item \textbf{Sed luctus, elit sit amet} dictum maximus, diam dolor
-        faucibus purus, sed lobortis justo erat id turpis.
-      \item \textbf{Pellentesque facilisis dolor in leo} bibendum congue.
-        Maecenas congue finibus justo, vitae eleifend urna facilisis at.
-    \end{itemize}
 
   \end{block}
 
@@ -303,9 +307,7 @@
   \end{block}
 
   \begin{block}{References}
-
-    \nocite{*}
-    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+    \footnotesize{\bibliographystyle{plain}\bibliography{refs}}
 
   \end{block}
 
