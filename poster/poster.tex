@@ -6,7 +6,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[size=custom,width=120,height=72,scale=1.0]{beamerposter}
+\usepackage[size=a0]{beamerposter}
 \usetheme{gemini}
 \usecolortheme{ox}
 \usepackage{graphicx}
@@ -137,7 +137,25 @@
   \end{alertblock}
 
   \begin{block}{Maximum storage space} \small
-    j \cite{fncom:2017}
+    Naturally, Hopfield networks will get less and less accurate at recalling data as
+    the amount of data increases. We use the concept of \textit{maximum storage space}
+    to measure how many states the network can store before it is unlikely to be able to
+    recall individual states.
+
+    We can calculate the storage capacity of a network with $n$ nodes by using the following
+    formula:
+
+    \begin{equation} \label{recall_percentage}
+      C \cong \frac{n}{2log_2n}
+    \end{equation}
+
+    Using this, we see that $C \approx 0.138n$. \cite{fncom:2017}
+
+    Effectively, what this means is that for every $1000$ nodes in the network, approximately
+    $138$ states can be recalled. For our application, since for an $n$-by-$m$ image there are
+    $nm$ nodes in the network, we can store $0.138nm$ images with reasonable accuracy.
+
+
   \end{block}
 
 \end{column}
@@ -213,7 +231,12 @@
     \end{wrapfigure}
 
     Here, we see that the model is able to distinguish between the various images to
-    a relatively high degree of accuracy, around $90\% - 95\%$.
+    a relatively high degree of accuracy, around $90\% - 95\%$. While it is not perfect, it
+    can tell the difference between the images, despite them looking relatively similar,
+    is what we are looking for.
+
+    Now we have seen that the model can distinguish between the images, we now can
+    input corrupted images and see whether the model can recover them.
 
   \end{block}
 
