@@ -1,18 +1,18 @@
 # Fdb version 4
-["bibtex poster"] 1717413572.18138 "poster.aux" "poster.bbl" "poster" 1717414697.60145 0
-  "./refs.bib" 1717408190 322 a083f174f3faae997429092cad57c5d8 ""
+["bibtex poster"] 1717517776.86028 "poster.aux" "poster.bbl" "poster" 1717518421.10435 0
+  "./refs.bib" 1717517736 627 233799caac54fb911c25c77e6d7d47bd ""
   "D:/Program Files/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "poster.aux" 1717414695 1012 84de8ce55487a6017cf86d4571738728 "xelatex"
+  "poster.aux" 1717518419 1318 90542f274fa54a3a9a7af1dc68014d63 "xelatex"
   (generated)
   "poster.bbl"
   "poster.blg"
   (rewritten before read)
-["xdvipdfmx"] 1717414697.1198 "poster.xdv" "poster.pdf" "poster" 1717414697.61836 0
-  "poster.xdv" 1717414695 91920 7c5acbe4a03c2039c1aa7cceaf88392d "xelatex"
+["xdvipdfmx"] 1717518420.58255 "poster.xdv" "poster.pdf" "poster" 1717518421.12296 0
+  "poster.xdv" 1717518419 83852 e07ee251b56a19c8f3d978cf173493e1 "xelatex"
   (generated)
   "poster.pdf"
   (rewritten before read)
-["xelatex"] 1717414693.34165 "d:/Documents/GitHub/hopfield-networks-project/poster/poster.tex" "poster.xdv" "poster" 1717414697.6021 0
+["xelatex"] 1717518416.84597 "d:/Documents/GitHub/hopfield-networks-project/poster/poster.tex" "poster.xdv" "poster" 1717518421.10472 0
   "C:/Users/danha/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1717087680 37560960 495f5c3031b508574cff3e6180c9dbc0 ""
   "D:/Program Files/MiKTeX/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136772254 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "D:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -34,8 +34,6 @@
   "D:/Program Files/MiKTeX/fonts/tfm/public/lm/lmsy6.tfm" 1256929440 1300 b0605d44c16c22d99dc001808e4f24ea ""
   "D:/Program Files/MiKTeX/fonts/tfm/public/lm/lmsy8.tfm" 1256929440 1304 cdc9a17df9ef0d2dc320eff37bbab1c4 ""
   "D:/Program Files/MiKTeX/fonts/tfm/public/lm/rm-lmbx12.tfm" 1256929440 11880 ea60d06924270684e6f852f3141c992b ""
-  "D:/Program Files/MiKTeX/fonts/tfm/public/lm/rm-lmbx6.tfm" 1256929440 11852 eda7061aa4cc8552ba736dae866e4460 ""
-  "D:/Program Files/MiKTeX/fonts/tfm/public/lm/rm-lmbx8.tfm" 1256929440 11868 731e03b24d399279cf9609d002110394 ""
   "D:/Program Files/MiKTeX/fonts/tfm/public/lm/rm-lmr12.tfm" 1256929440 11888 6841b91e46b65cf41a49b160e6e74130 ""
   "D:/Program Files/MiKTeX/fonts/tfm/public/lm/rm-lmr17.tfm" 1256929440 11948 fa976674f030491ad35532a8a1e37325 ""
   "D:/Program Files/MiKTeX/fonts/tfm/public/lm/rm-lmr6.tfm" 1256929440 11836 e3b6ce3e601aec94f64a536e7f4224d5 ""
@@ -166,6 +164,7 @@
   "D:/Program Files/MiKTeX/tex/latex/base/atveryend-ltx.sty" 1705273579 2462 6bc53756156dbd71c1ad550d30a3b93f ""
   "D:/Program Files/MiKTeX/tex/latex/base/exscale.sty" 1705273578 2581 8e0df574a0fdf7d67e300be743ad323e ""
   "D:/Program Files/MiKTeX/tex/latex/base/fontenc.sty" 1705273578 5119 a04a8b68ab4f6ce800a41f7f8012a10e ""
+  "D:/Program Files/MiKTeX/tex/latex/base/ifthen.sty" 1705273578 5319 2b738d02ce36ada6dcdd9534940db0ee ""
   "D:/Program Files/MiKTeX/tex/latex/base/size11.clo" 1705273578 8464 59874a3b0776c73e2a138b025d8473dd ""
   "D:/Program Files/MiKTeX/tex/latex/base/ts1cmr.fd" 1705273578 2430 fce77d7e103eb98b6c4d486ae1d466c0 ""
   "D:/Program Files/MiKTeX/tex/latex/beamer/beamer.cls" 1704551939 12512 a310ecdc7bb8bde63702b12cf1fc0ab5 ""
@@ -211,6 +210,7 @@
   "D:/Program Files/MiKTeX/tex/latex/beamerposter/beamerposter.sty" 1524472232 12772 057d0ff915810e5d6b1476ee9a52d111 ""
   "D:/Program Files/MiKTeX/tex/latex/booktabs/booktabs.sty" 1579093635 6253 f1cb470c9199e7110a27851508ed7a5c ""
   "D:/Program Files/MiKTeX/tex/latex/changepage/changepage.sty" 1256021817 4523 a9044e2dc40e764dac60d2acda7ae919 ""
+  "D:/Program Files/MiKTeX/tex/latex/commath/commath.sty" 1153221840 9537 ecb0f152230e8d1c561906edc314dcbc ""
   "D:/Program Files/MiKTeX/tex/latex/etoolbox/etoolbox.sty" 1601897756 46845 3b58f70c6e861a13d927bff09d35ecbc ""
   "D:/Program Files/MiKTeX/tex/latex/fontspec/fontspec-xetex.sty" 1715414856 164981 148a15871e0e3c3101b8203733535af2 ""
   "D:/Program Files/MiKTeX/tex/latex/fontspec/fontspec.cfg" 1715414856 549 c4adac819276241fea8eb79c5ab7b99e ""
@@ -283,17 +283,19 @@
   "D:/Program Files/MiKTeX/tex/latex/translator/translator.sty" 1622471510 8765 56d370785f0143111ff9898b5adfe08e ""
   "D:/Program Files/MiKTeX/tex/latex/type1cm/type1cm.sty" 1469030226 7308 e7cee88575f4e65f8bf3918ccb2aa80e ""
   "D:/Program Files/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
+  "D:/Program Files/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "D:/Program Files/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "D:/Program Files/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "beamercolorthemeox.sty" 1717087988 1579 85a3b95f93e5cb25e166e089e15f43ee ""
   "beamerthemegemini.sty" 1683204024 6725 e91abe9c3aa7634ca98ec841af52bce9 ""
-  "d:/Documents/GitHub/hopfield-networks-project/poster/poster.tex" 1717414692 11460 86213f22069686055c9aaf7b9a8eac6b ""
+  "d:/Documents/GitHub/hopfield-networks-project/poster/poster.tex" 1717518416 10792 e2718a26eb905c6222440afc15f90091 ""
+  "images/bwoutput.png" 1717513640 42597 9851fb628f71c886da16dfa9a6bf4d61 ""
   "logos/Imperial-college-white.png" 1717413122 26477 ba2d26edd2fcc424d7caf7a12f7768c6 ""
-  "poster.aux" 1717414695 1012 84de8ce55487a6017cf86d4571738728 "xelatex"
-  "poster.bbl" 1717413572 326 a6f16c804a120450b77eb961e7d14c36 "bibtex poster"
-  "poster.nav" 1717414695 307 9e520c26371a1250ff9fc1fe87f9c655 "xelatex"
-  "poster.out" 1717414695 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
-  "poster.tex" 1717414692 11460 86213f22069686055c9aaf7b9a8eac6b ""
+  "poster.aux" 1717518419 1318 90542f274fa54a3a9a7af1dc68014d63 "xelatex"
+  "poster.bbl" 1717517777 536 af784f79b70430f3e79ef81edc52009c "bibtex poster"
+  "poster.nav" 1717518419 307 9e520c26371a1250ff9fc1fe87f9c655 "xelatex"
+  "poster.out" 1717518419 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "poster.tex" 1717518416 10792 e2718a26eb905c6222440afc15f90091 ""
   (generated)
   "poster.aux"
   "poster.log"

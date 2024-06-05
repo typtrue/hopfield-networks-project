@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2024.5.30)  3 JUN 2024 12:38
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2024.5.30)  4 JUN 2024 17:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -318,7 +318,6 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
  (D:\Program Files\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Option `final' set `true' on input line 4040.
 Package hyperref Info: Option `bookmarks' set `true' on input line 4040.
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 4040.
 Package hyperref Info: Option `implicit' set `false' on input line 4040.
@@ -888,7 +887,19 @@ Package pgfplots: loading complementary utilities for your pgf version...
 File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (D:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (D:\Program Files\MiKTeX\tex/latex/anyfontsize\anyfontsize.sty
+))) (D:\Program Files\MiKTeX\tex/latex/commath\commath.sty
+Invalid UTF-8 byte or sequence at line 6 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 9 replaced by U+FFFD.
+ (D:\Program Files\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)) (D:\Program Files\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen340
+\WF@size=\dimen341
+\c@WF@wrappedlines=\count389
+\WF@box=\box84
+\WF@everypar=\toks57
+Package: wrapfig 2003/01/31  v 3.6
+) (D:\Program Files\MiKTeX\tex/latex/anyfontsize\anyfontsize.sty
 Invalid UTF-8 byte or sequence at line 3 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 3 replaced by U+FFFD.
 Package: anyfontsize 2007/11/22 anyfontsize.sty by pts
@@ -900,30 +911,30 @@ File: logos/Imperial-college-white.png Graphic file (type bmp)
  (poster.aux)
 \openout1 = `poster.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 57.
  (D:\Program Files\MiKTeX\tex/latex/base\ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -959,7 +970,7 @@ LaTeX Font Info:    ... okay on input line 54.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 54.
+Package hyperref Info: Link coloring OFF on input line 57.
 (poster.out) (poster.out)
 \@outlinefile=\write5
 \openout5 = `poster.out'.
@@ -982,22 +993,24 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 (poster.nav)
 File: logos/Imperial-college-white.png Graphic file (type bmp)
 <logos/Imperial-college-white.png>
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 54.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 57.
  (D:\Program Files\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 54.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 57.
  (D:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 54.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 57.
  (D:\Program Files\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 54.
+(Font)              <6> on input line 57.
 File: logos/Imperial-college-white.png Graphic file (type bmp)
 <logos/Imperial-college-white.png>
+File: ./images/bwoutput.png Graphic file (type bmp)
+<./images/bwoutput.png>
  (poster.bbl)
 File: logos/Imperial-college-white.png Graphic file (type bmp)
 <logos/Imperial-college-white.png>
@@ -1022,12 +1035,12 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 38790 strings out of 409442
- 936131 string characters out of 5773789
+ 38549 strings out of 409442
+ 925610 string characters out of 5773789
  2023559 words of memory out of 5000000
- 60317 multiletter control sequences out of 15000+600000
- 606682 words of font info for 130 fonts, out of 8000000 for 9000
+ 60068 multiletter control sequences out of 15000+600000
+ 593583 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 128i,18n,123p,780b,2716s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,18n,123p,775b,954s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on poster.xdv (1 page, 91920 bytes).
+Output written on poster.xdv (1 page, 83852 bytes).

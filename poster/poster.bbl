@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{fncom:2017}
+Viola Folli, Marco Leonetti, and Giancarlo Ruocco.
+\newblock On the maximum storage capacity of the hopfield model.
+\newblock {\em Frontiers in Computational Neuroscience}, 10, 2017.
+
 \bibitem{hopfield:1982}
 J.~J. Hopfield.
 \newblock Neural networks and physical systems with emergent collective

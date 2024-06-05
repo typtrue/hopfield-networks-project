@@ -1,4 +1,4 @@
-\documentclass[final]{beamer}
+\documentclass[25pt, a0paper, portrait]{beamer}
 
 % ====================
 % Packages
@@ -13,8 +13,11 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{commath}
+\usepackage{wrapfig}
 \pgfplotsset{compat=1.14}
 \usepackage{anyfontsize}
+\graphicspath{{./images/}}
 
 % ====================
 % Lengths
@@ -61,7 +64,7 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{An introduction to Hopfield Networks}
+  \begin{block}{An introduction to Hopfield Networks} \small
 
     \textbf{Hopfield Networks} are a form of Ising model that have many uses in various sectors: 
     computational neuroscience, optimisation, and more. Similar to an Ising model, they
@@ -73,17 +76,7 @@
     and \textit{'updating'} the network using the weights we obtained from training
     it on our sets of data.
 
-    % \begin{figure}
-    %   \centering
-    %   \begin{tikzpicture}[scale=6]
-    %     \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
-    %     \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
-    %       -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
-    %   \end{tikzpicture}
-    %   \caption{A figure caption.}
-    % \end{figure}
-
-    In this project, we will look specifically at its application in image processing: how it can
+    In this project, we will look specifically at their application in image processing: how it can
     be used to restore and discern between corrupted pixellated images. By training the network on
     a set of images, we can then input corrupted versions of the images into the network, and updating
     the network will yield an image that should hopefully resemble the orignal image to a good degree
@@ -91,7 +84,7 @@
 
   \end{block}
 
-  \begin{block}{Basic definitions}
+  \begin{block}{Basic definitions} \small
 
     We start by defining our $n$ node spins $V_i$, where $i \in \{0, 1, ..., n\}$.
     These nodes all have connections to other nodes, and this is denoted by
@@ -121,7 +114,7 @@
     biological systems, such as the brain, will update asynchronously.
   \end{block}
 
-  \begin{alertblock}{The Hebbian learning rule}
+  \begin{alertblock}{The Hebbian learning rule} \small
 
     The core of the Hopfield network lies in its use in \textit{'storing'} states
     of the network to be recovered later. This is done using the \textit{Hebbian learning
@@ -143,13 +136,17 @@
     can start looking at basic uses of the network.
   \end{alertblock}
 
+  \begin{block}{Maximum storage space} \small
+    j \cite{fncom:2017}
+  \end{block}
+
 \end{column}
 
 \separatorcolumn
 
 \begin{column}{\colwidth}
 
-  \begin{block}{Initialising and training the network}
+  \begin{block}{Initialising and training the network} \small
 
     Suppose we have a set of $k$ $n$-by-$m$ uncorrupted images to train the model on,
     where each pixel can either be black or white.
@@ -198,40 +195,25 @@
 
   \end{block}
 
-  \begin{block}{Restoring images}
+  \begin{block}{Restoring images} \small
 
-    Et rutrum ex euismod vel. Pellentesque ultricies, velit in fermentum
-    vestibulum, lectus nisi pretium nibh, sit amet aliquam lectus augue vel
-    velit. Suspendisse rhoncus massa porttitor augue feugiat molestie. Sed
-    molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
-    posuere.
+    Now that the network has been trained on the images, we can use it to restore
+    corrupted images. To do this, we take the matrix $\boldsymbol{T}$ that we
+    recieved from training and an input state $\boldsymbol{V}$, which represents
+    our image to be restored.
 
-    \begin{figure}
+    By updating the state using (\ref{update_rule}), we recieve a new image back,
+    which we can then interpret again as an image. This will be our restored image.
+
+    We can test our trained system by inputting our orignal images $\boldsymbol{V}^s$:
+    
+    \begin{wrapfigure}{l}{0.2\textwidth}
       \centering
-      \begin{tikzpicture}
-        \begin{axis}[
-            scale only axis,
-            no markers,
-            domain=0:2*pi,
-            samples=100,
-            axis lines=center,
-            axis line style={-},
-            ticks=none]
-          \addplot[red] {sin(deg(x))};
-          \addplot[blue] {cos(deg(x))};
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Another figure caption.}
-    \end{figure}
+      \includegraphics[width=0.2\textwidth]{bwoutput}
+    \end{wrapfigure}
 
-  \end{block}
-
-  \begin{block}{t}
-
-    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
-    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
-    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
-    ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
+    Here, we see that the model is able to distinguish between the various images to
+    a relatively high degree of accuracy, around $90\% - 95\%$.
 
   \end{block}
 
@@ -241,68 +223,60 @@
 
 \begin{column}{\colwidth}
 
-  \begin{exampleblock}{A highlighted block containing some math}
+  \begin{block}{Moving to greyscale images} \small
 
-    A different kind of highlighted block.
+    What if instead of just working with spins of $+1$ or $-1$, we were to work
+    with spins that take continuous values? We would be able to express a continuum
+    of values for each pixel, instead of just black or white.
 
-    $$
-    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-    $$
+    To do this, we instead model the spin as being a complex number of the form $e^{i\theta}$,
+    with $0 \le \theta \le \pi$. This includes the values $+1$ and $-1$, which will still
+    represent the colours black and white respectively, but we can model the pixels
+    as any colour on the greyscale.
 
-    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
-    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
-    felis id vulputate.
+    To get this working with our model, we need to adjust some of our rules:
 
-    \heading{A heading inside a block}
+    \heading{New update rule}
 
-    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
-    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
-    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
-    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
+    Since we are now working with continuous values, it doesn't make sense to have a threshold
+    value anymore. Instead, we just take the weighted average of all of the connected pixels,
+    and renormalise the complex value so its modulus is $1$.
 
-    \heading{Another heading inside a block}
+    \begin{equation} \label{complex_update_rule}
+      V_i = \frac{\sum_{j}T_{ij}V_j}{\norm{\sum_{j}T_{ij}V_j}}
+    \end{equation}
 
-    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
-    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
-    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
-    justo.
+    This will inevitably move all of the pixels closer to grey, but we will adjust for that later.
 
-  \end{exampleblock}
+    \heading{New learning rule}
 
-  \begin{block}{Nullam vel erat at velit convallis laoreet}
+    We also need to change the learning rule, as we can't check for a change in sign anymore.
+    Instead, we calculate the distance between each pixel's colour by using its argument, and
+    scaling it so that a weight of $-1$ represents the pixels being as far away as possible,
+    and $1$ represents the pixels being the same.
 
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
-    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
+    So, for any given state $s$,
 
-    \begin{table}
-      \centering
-      \begin{tabular}{l r r c}
-        \toprule
-        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
-        \midrule
-        Foo & 13.37 & 384,394 & $\alpha$ \\
-        Bar & 2.17 & 1,392 & $\beta$ \\
-        Baz & 3.14 & 83,742 & $\delta$ \\
-        Qux & 7.59 & 974 & $\gamma$ \\
-        \bottomrule
-      \end{tabular}
-      \caption{A table caption.}
-    \end{table}
+    \begin{equation*}
+      a^s_{ij} = \abs{arg(\frac{V^s_i}{V^s_j})}
+    \end{equation*}
 
-    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
-    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
-    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
-    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
-    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
-    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
-    ad litora torquent per conubia nostra, per inceptos himenaeos.
+    is the angle between $V^s_i$ and $V^s_j$. Now, we use this to form our new learning rule:
+    
+    \begin{equation} \label{complex_learning_rule}
+      T_{ij} = \sum_{s}(1 - \frac{2a^s_{ij}}{\pi})
+    \end{equation}
 
-    Nulla varius finibus volutpat. Mauris molestie lorem tincidunt, iaculis
-    libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
-    Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
-    in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
-    auctor urna non, tempus sem.
+    Again, we set $T_{ij}$ to equal $0$ whenever $i = j$. Now the ground rules are in place
+    for our new network, we can test it out on some greyscale images.
+
+  \end{block}
+
+  \begin{block}{Training and restoration of greyscale images} \small
+
+    Using the same method as before, we get the pixels' values, and scale them to be on the
+    complex unit circle with positive imaginary part. Then, we use these as our node spins and
+    train the network on them using (\ref{complex_learning_rule}), 
 
   \end{block}
 

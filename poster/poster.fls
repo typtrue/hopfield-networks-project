@@ -423,6 +423,12 @@ INPUT D:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzl
 INPUT D:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryplotmarks.code.tex
 INPUT D:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryplotmarks.code.tex
 INPUT D:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryplotmarks.code.tex
+INPUT D:\Program Files\MiKTeX\tex\latex\commath\commath.sty
+INPUT D:\Program Files\MiKTeX\tex\latex\commath\commath.sty
+INPUT D:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
+INPUT D:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
+INPUT D:\Program Files\MiKTeX\tex\latex\wrapfig\wrapfig.sty
+INPUT D:\Program Files\MiKTeX\tex\latex\wrapfig\wrapfig.sty
 INPUT D:\Program Files\MiKTeX\tex\latex\anyfontsize\anyfontsize.sty
 INPUT D:\Program Files\MiKTeX\tex\latex\anyfontsize\anyfontsize.sty
 INPUT .\logos\Imperial-college-white.png
@@ -497,21 +503,15 @@ INPUT .\logos\Imperial-college-white.png
 INPUT .\logos\Imperial-college-white.png
 INPUT .\logos\Imperial-college-white.png
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\rm-lmr17.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\rm-lmr17.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\rm-lmr17.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmmi12.tfm
+INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\rm-lmr12.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmmi12.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmmi12.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmsy10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmsy10.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmsy10.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\rm-lmbx12.tfm
@@ -523,15 +523,14 @@ INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmmib10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmbsy10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmbsy10.tfm
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\lmbsy10.tfm
+INPUT .\images\bwoutput.png
+INPUT .\images\bwoutput.png
 INPUT .\poster.bbl
 INPUT .\poster.bbl
 INPUT poster.bbl
 INPUT .\logos\Imperial-college-white.png
 INPUT .\logos\Imperial-college-white.png
 INPUT .\logos\Imperial-college-white.png
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\rm-lmbx12.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\rm-lmbx8.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\lm\rm-lmbx6.tfm
 OUTPUT poster.xdv
 OUTPUT poster.nav
 OUTPUT poster.toc
