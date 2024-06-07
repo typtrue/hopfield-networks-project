@@ -12,4 +12,19 @@ J.~J. Hopfield.
 \newblock {\em Proceedings of the National Academy of Sciences of the United
   States of America}, 79:2554--2558, April 1982.
 
+\bibitem{ramsauer:2021}
+Hubert Ramsauer, Bernhard Schäfl, Johannes Lehner, Philipp Seidl, Michael
+  Widrich, Thomas Adler, Lukas Gruber, Markus Holzleitner, Milena Pavlović,
+  Geir~Kjetil Sandve, Victor Greiff, David Kreil, Michael Kopp, Günter
+  Klambauer, Johannes Brandstetter, and Sepp Hochreiter.
+\newblock Hopfield networks is all you need, 2021.
+
+\bibitem{storkey:1997}
+Amos Storkey.
+\newblock Increasing the capacity of a hopfield network without sacrificing
+  functionality.
+\newblock In Wulfram Gerstner, Alain Germond, Martin Hasler, and Jean-Daniel
+  Nicoud, editors, {\em Artificial Neural Networks --- ICANN'97}, pages
+  451--456, Berlin, Heidelberg, 1997. Springer Berlin Heidelberg.
+
 \end{thebibliography}

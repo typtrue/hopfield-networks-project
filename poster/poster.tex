@@ -15,6 +15,7 @@
 \usepackage{pgfplots}
 \usepackage{commath}
 \usepackage{wrapfig}
+\usepackage{subcaption}
 \pgfplotsset{compat=1.14}
 \usepackage{anyfontsize}
 \graphicspath{{./images/}}
@@ -155,7 +156,9 @@
     $138$ states can be recalled. For our application, since for an $n$-by-$m$ image there are
     $nm$ nodes in the network, we can store $0.138nm$ images with reasonable accuracy.
 
-
+    Note that this means that the storage capacity is linear with the shape of the input,
+    which for large sets of data is not preferable. Instead, to improve this, we can utilise a
+    different learning rule, called the Storkey learning rule. \cite{storkey:1997}
   \end{block}
 
 \end{column}
@@ -223,20 +226,38 @@
     By updating the state using (\ref{update_rule}), we recieve a new image back,
     which we can then interpret again as an image. This will be our restored image.
 
-    We can test our trained system by inputting our orignal images $\boldsymbol{V}^s$:
+    We can test our trained system by inputting our orignal images as well as our
+    corrupted ones. $\boldsymbol{V}^s$:
     
-    \begin{wrapfigure}{l}{0.2\textwidth}
-      \centering
-      \includegraphics[width=0.2\textwidth]{bwoutput}
-    \end{wrapfigure}
+    \begin{figure}[ht]
+      \subcaptionbox*{Testing on uncorrupted images}[.3\linewidth]{%
+        \includegraphics[width=\linewidth]{bwoutput}%
+      }%
+      \hfill
+      \subcaptionbox*{Inputting  corrupted equivalents}[.3\linewidth]{%
+        \includegraphics[width=\linewidth]{bwoutput2}%
+      }
+      \caption{Testing our network}
+    \end{figure}
 
     Here, we see that the model is able to distinguish between the various images to
     a relatively high degree of accuracy, around $90\% - 95\%$. While it is not perfect, it
-    can tell the difference between the images, despite them looking relatively similar,
-    is what we are looking for.
+    can tell the difference between the images, and the updated images are still
+    recognisable, despite them all looking relatively similar to each other. Training on
+    more images should still produce good results, since as long as we stay below the
+    maximum storage capacity of $0.138nm$, we can store more memories in the network.
+    In our particular case, since the images are $28$-by-$28$, as we are using the
+    \texttt{fashion-mnist} dataset, so the maximum number of images we can store is
+    around $108$.
 
-    Now we have seen that the model can distinguish between the images, we now can
-    input corrupted images and see whether the model can recover them.
+    We also see that when inputting corrupted images, which we obtained by masking the
+    top $6$ lines of the image, that it is somewhat able to recover the image.
+    We are able to recover the image to an accuracy of $85\%$ to $95\%$. The recovery
+    accuracy of images depends greatly on the images themselves, and since these images
+    are particularly similar, since they are all clothing items, it is not able to recover
+    them perfectly. In this sense, for these types of images a Modern Hopfield network,
+    which are Hopfield networks which have been adapted so the storage capacity is no longer
+    linear with the input shape, would be preferable. \cite{ramsauer:2021}
 
   \end{block}
 
